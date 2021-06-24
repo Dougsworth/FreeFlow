@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/vendor/chart.js"></script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div>
+      <canvas id="voltage-chart"></canvas>
+    </div>
+    <div>
+      <canvas id="current-chart"></canvas>
+    </div>
+    <div>
+      <canvas id="power-chart"></canvas>
+    </div>
+    <script>
+      const metrics = <%- JSON.stringify(metrics) %>;
+
+      const dateLabels = metrics.map(metric => metric.Date.toString());
+      const baseConfig = {
+        type: "line",
+        options: {},
+      };
+
+      const voltageData = {
+        labels: dateLabels,
+        datasets: [
+          {
+            label: "Voltage vs time",
+            backgroundColor: "rgb(255, 99, 132)",
+            borderColor: "rgb(255, 99, 132)",
+            data: metrics.map(metric => metric.voltage),
+          },
+        ],
+      };
+
+      const voltageConfig = {
+        ...baseConfig,
+        data: voltageData
+      };
+
+      const voltageChart = new Chart(
+        document.getElementById("voltage-chart"),
+        voltageConfig
+      );
+
+
+      const currentData = {
+        labels: dateLabels,
+        datasets: [
+          {
+            label: "Current vs time",
+            backgroundColor: "rgb(255, 99, 132)",
+            borderColor: "rgb(255, 99, 132)",
+            data: metrics.map(metric => metric.current),
+          },
+        ],
+      };
+
+      const currentConfig = {
+        ...baseConfig,
+        data: currentData
+      }
+
+      const currentChart = new Chart(
+        document.getElementById("current-chart"),
+        currentConfig
+      );
+
+      const powerData = {
+        labels: dateLabels,
+        datasets: [
+          {
+            label: "Power vs time",
+            backgroundColor: "rgb(255, 99, 132)",
+            borderColor: "rgb(255, 99, 132)",
+            data: metrics.map(metric => metric.power),
+          },
+        ],
+      };
+
+      const powerConfig = {
+        ...baseConfig,
+        data: powerData
+      }
+
+
+      const powerChart = new Chart(
+        document.getElementById("power-chart"),
+        powerConfig
+      );
+
+      
+    </script>
+  </body>
+</html>
