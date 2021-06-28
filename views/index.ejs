@@ -1,100 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script src="/vendor/chart.js"></script>
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <div>
-      <canvas id="voltage-chart"></canvas>
+
+<head>
+  <title><%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark mb-5">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><%= title %></a>
     </div>
-    <div>
-      <canvas id="current-chart"></canvas>
+  </nav>
+  <main class="container-fluid">
+    <div class="row row-cols-1 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="card">
+          <canvas id="voltage-chart" class="card-img-top"></canvas>
+          <div class="card-body">
+            <h5 class="card-title">Voltage</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <canvas id="current-chart" class="card-img-top"></canvas>
+          <div class="card-body">
+            <h5 class="card-title">Current</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <canvas id="power-chart" class="card-img-top"></canvas>
+          <div class="card-body">
+            <h5 class="card-title">Power</h5>
+          </div>
+        </div>
+      </div>  
     </div>
-    <div>
-      <canvas id="power-chart"></canvas>
-    </div>
-    <script>
-      const metrics = <%- JSON.stringify(metrics) %>;
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="/vendor/chartjs/chart.js"></script>
+  <script src="/javascripts/main.js"></script>
+</body>
 
-      const dateLabels = metrics.map(metric => metric.Date.toString());
-      const baseConfig = {
-        type: "line",
-        options: {},
-      };
-
-      const voltageData = {
-        labels: dateLabels,
-        datasets: [
-          {
-            label: "Voltage vs time",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
-            data: metrics.map(metric => metric.voltage),
-          },
-        ],
-      };
-
-      const voltageConfig = {
-        ...baseConfig,
-        data: voltageData
-      };
-
-      const voltageChart = new Chart(
-        document.getElementById("voltage-chart"),
-        voltageConfig
-      );
-
-
-      const currentData = {
-        labels: dateLabels,
-        datasets: [
-          {
-            label: "Current vs time",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
-            data: metrics.map(metric => metric.current),
-          },
-        ],
-      };
-
-      const currentConfig = {
-        ...baseConfig,
-        data: currentData
-      }
-
-      const currentChart = new Chart(
-        document.getElementById("current-chart"),
-        currentConfig
-      );
-
-      const powerData = {
-        labels: dateLabels,
-        datasets: [
-          {
-            label: "Power vs time",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
-            data: metrics.map(metric => metric.power),
-          },
-        ],
-      };
-
-      const powerConfig = {
-        ...baseConfig,
-        data: powerData
-      }
-
-
-      const powerChart = new Chart(
-        document.getElementById("power-chart"),
-        powerConfig
-      );
-
-      
-    </script>
-  </body>
 </html>
