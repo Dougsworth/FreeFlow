@@ -129,11 +129,11 @@ Freeflow is a free and open-source software licensed under the GNU General Publi
 
 
 Goals for the project achieved
-• Convert the RF energy transmitted by a Wi-Fi router into usable energy to charge or directly power
+- Convert the RF energy transmitted by a Wi-Fi router into usable energy to charge or directly power
 a low power consumption device.
-• Make the energy conversion process efficient
-• Ideally mplement the design to occupy the smallest space (volume) possible, however proof of cincept is required first.
-• Documentation and testing of a working prototype that meets the technical and functional
+- Make the energy conversion process efficient
+- Ideally implement the design to occupy the smallest space (volume) possible, however proof of concept is required first
+- Documentation and testing of a working prototype that meets the technical and functional
 specifications 
 _____________________________________________
 
