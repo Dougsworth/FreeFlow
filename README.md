@@ -18,7 +18,7 @@
 
 
  <p align="center">
-  FreeFlow converts radiofrewuncy waves transmitted by a wifi router to usable dc energy
+  FreeFlow converts radiofrequency waves transmitted by a wifi router to usable dc energy
   </p>
 
 
