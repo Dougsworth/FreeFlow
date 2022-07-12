@@ -9,7 +9,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-      <a href="https://im.ge/i/u4sudp"><img src="https://i.im.ge/2022/07/12/u4sudp.png" alt="u4sudp.png" border="0"></a>
+      <a href="https://im.ge/i/u4s59J"><img src="https://i.im.ge/2022/07/12/u4s59J.png" alt="u4s59J.png" border="0" height="500px" width = "500px"></a>
+  
 </p>
 
 
